@@ -1,0 +1,15 @@
+<h2>Buscar Filme Individual</h2>
+
+<form (ngSubmit)="buscarFilme()">
+  <input [(ngModel)]="titulo" name="titulo" placeholder="Digite o nome exato do filme">
+  <button type="submit">Buscar</button>
+</form>
+
+<div *ngIf="erro" class="erro">{{ erro }}</div>
+
+<div *ngIf="filme">
+  <h3>{{ filme.Title }} ({{ filme.Year }})</h3>
+  <p><b>Diretor:</b> {{ filme.Director }}</p>
+  <p><b>Gênero:</b> {{ filme.Genre }}</p>
+  <img [src]="filme.Poster" alt="Poster do filme" *ngIf="filme.Poster !== 'N/A'">
+</div>

@@ -1,0 +1,18 @@
+<h2>Consulta de Lista de Filmes</h2>
+
+<input [(ngModel)]="titulo" placeholder="Digite parte do nome do filme">
+<button (click)="buscarLista()">Buscar Lista</button>
+
+<div *ngIf="erro" class="erro">{{ erro }}</div>
+
+<div *ngIf="filmes.length > 0">
+  <p><b>Encontrados:</b> {{ filmes.length }}</p>
+  <div class="lista-filmes">
+    <div *ngFor="let f of filmes" class="card">
+      <img [src]="f.Poster" alt="{{ f.Title }}" *ngIf="f.Poster !== 'N/A'">
+      <h4>{{ f.Title }}</h4>
+      <p><b>Ano:</b> {{ f.Year }}</p>
+      <p><b>Tipo:</b> {{ f.Type }}</p>
+    </div>
+  </div>
+</div>
